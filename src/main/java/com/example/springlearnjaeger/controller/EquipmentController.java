@@ -1,7 +1,8 @@
 package com.example.springlearnjaeger.controller;
 
 import com.example.springlearnjaeger.domain.Equipment;
-import com.example.springlearnjaeger.model.EquipmentRequestDto;
+import com.example.springlearnjaeger.exceptions.UserNotFoundException;
+import com.example.springlearnjaeger.model.request.EquipmentRequestDto;
 import com.example.springlearnjaeger.service.EquipmentService;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,17 +31,17 @@ public class EquipmentController {
     }
 
     @PutMapping("/equipment/{id}")
-    public Equipment update(@PathVariable("id") int id ,@RequestBody EquipmentRequestDto equipmentRequestDto){
+    public Equipment update(@PathVariable("id") int id ,@RequestBody EquipmentRequestDto equipmentRequestDto) throws UserNotFoundException {
         return equipmentService.update(id,equipmentRequestDto);
     }
 
     @GetMapping("/equipment/{id}")
-    public Equipment get(@PathVariable("id") int id){
+    public Equipment get(@PathVariable("id") int id) throws UserNotFoundException {
         return equipmentService.get(id);
     }
 
     @DeleteMapping("/equipment/{id}")
-    public void delete(@PathVariable("id") int id){
+    public void delete(@PathVariable("id") int id) throws UserNotFoundException {
          equipmentService.delete(id);
     }
 

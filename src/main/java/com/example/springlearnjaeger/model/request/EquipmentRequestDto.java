@@ -1,4 +1,4 @@
-package com.example.springlearnjaeger.model;
+package com.example.springlearnjaeger.model.request;
 
 public class EquipmentRequestDto {
 
